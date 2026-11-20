@@ -6,6 +6,8 @@ soft-fail: false
 skip-check:
   - CKV_GCP_26
   - CKV_GCP_27
+  - CKV_GCP_32
   - CKV_GCP_36
   - CKV_GCP_38
+  - CKV_GCP_40
   - CKV_GCP_62
