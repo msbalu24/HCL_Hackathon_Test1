@@ -1,6 +1,6 @@
 package terraform.policies.labels
 
-import future.keywords.in
+import rego.v1
 
 required_labels := ["environment", "owner", "cost_center", "managed_by"]
 

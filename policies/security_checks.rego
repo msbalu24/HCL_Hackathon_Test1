@@ -1,6 +1,6 @@
 package terraform.policies.security
 
-import future.keywords.in
+import rego.v1
 
 # 1. Block open 0.0.0.0/0 ingress source ranges on firewall rules
 deny contains msg if {
