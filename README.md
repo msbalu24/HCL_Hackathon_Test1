@@ -40,20 +40,52 @@
                             | - Shielded Private VM |
                             +-----------------------+
 
-## Repository Structure
+## Complete Project File & Folder Tree
 
-- `.checkov.yaml` — Checkov static IaC security scan configuration
-- `.gitattributes` — LF line-ending enforcement across Terraform, Rego, and YAML files
-- `.github/workflows/terraform-cicd.yml` — Automated `fmt`, `validate`, `Checkov`, and `OPA` CI/CD pipeline
-- `environments/dev/` — Dev environment root configuration (`10.10.1.0/24`, 10 live GCP resources + Vault integration)
-- `environments/prod/` — Prod environment root configuration (`10.20.1.0/24`, `e2-small`, 90-day retention)
-- `modules/networking/` — Custom VPC, regional subnet, IAP SSH, and internal firewall rules
-- `modules/iam/` — Least-privilege application service account and project IAM bindings
-- `modules/storage/` — Versioned GCS bucket with uniform access, public access prevention, and lifecycle rules
-- `modules/compute/` — Shielded GCE instance with zero public IP, dynamic OS image lookup, and lifecycle rules
-- `policies/mandatory_labels.rego` — OPA policy enforcing mandatory resource labels
-- `policies/security_checks.rego` — OPA policy blocking `0.0.0.0/0` ingress, public IPs, and weak bucket access settings
-- `scripts/setup_vault_demo.sh` — Helper script to seed HashiCorp Vault KV-v2 secrets for live demos
+    HCL_Hackathon_Test1/
+    |-- .checkov.yaml
+    |-- .gitattributes
+    |-- README.md
+    |-- .github/
+    |   `-- workflows/
+    |       `-- terraform-cicd.yml
+    |-- environments/
+    |   |-- dev/
+    |   |   |-- main.tf
+    |   |   |-- outputs.tf
+    |   |   |-- terraform.tfvars
+    |   |   |-- vault.tf
+    |   |   |-- variables.tf
+    |   |   `-- versions.tf
+    |   `-- prod/
+    |       |-- .terraform.lock.hcl
+    |       |-- main.tf
+    |       |-- outputs.tf
+    |       |-- terraform.tfvars
+    |       |-- variables.tf
+    |       `-- versions.tf
+    |-- modules/
+    |   |-- compute/
+    |   |   |-- main.tf
+    |   |   |-- outputs.tf
+    |   |   `-- variables.tf
+    |   |-- iam/
+    |   |   |-- main.tf
+    |   |   |-- outputs.tf
+    |   |   `-- variables.tf
+    |   |-- networking/
+    |   |   |-- main.tf
+    |   |   |-- outputs.tf
+    |   |   `-- variables.tf
+    |   `-- storage/
+    |       |-- main.tf
+    |       |-- outputs.tf
+    |       `-- variables.tf
+    |-- policies/
+    |   |-- mandatory_labels.rego
+    |   `-- security_checks.rego
+    `-- scripts/
+        `-- setup_vault_demo.sh
 
 ## Key Capabilities & Phases Implemented
 
