@@ -1,0 +1,7 @@
+project_id     = "hcl-hackathon-tf-gcp-demo2"
+project_prefix = "hcl-tf"
+environment    = "prod"
+region         = "us-central1"
+zone           = "us-central1-a"
+subnet_cidr    = "10.20.1.0/24"
+machine_type   = "e2-small"

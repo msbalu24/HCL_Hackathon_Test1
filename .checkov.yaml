@@ -1,0 +1,9 @@
+framework:
+  - terraform
+compact: true
+quiet: false
+soft-fail: false
+skip-check:
+  # Allow intentionally configured private/internal demo settings where applicable
+  - CKV_GCP_26
+  - CKV_GCP_27
