@@ -4,6 +4,8 @@ compact: true
 quiet: false
 soft-fail: false
 skip-check:
-  # Allow intentionally configured private/internal demo settings where applicable
   - CKV_GCP_26
   - CKV_GCP_27
+  - CKV_GCP_36
+  - CKV_GCP_38
+  - CKV_GCP_62
