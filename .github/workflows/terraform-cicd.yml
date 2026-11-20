@@ -38,10 +38,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Run Checkov on Terraform Code
         run: |
           pip install --quiet checkov
-          checkov -d modules environments/dev environments/prod --config-file .checkov.yaml
+          checkov -d . --config-file .checkov.yaml
 
       - name: Setup OPA & Verify Policies
         run: |
