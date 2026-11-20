@@ -3,7 +3,7 @@ package terraform.policies.security
 import future.keywords.in
 
 # 1. Block open 0.0.0.0/0 ingress source ranges on firewall rules
-deny[msg] if {
+deny contains msg if {
 	some rc in input.resource_changes
 	rc.type == "google_compute_firewall"
 	"create" in rc.change.actions
@@ -13,7 +13,7 @@ deny[msg] if {
 }
 
 # 2. Enforce public access prevention on GCS buckets
-deny[msg] if {
+deny contains msg if {
 	some rc in input.resource_changes
 	rc.type == "google_storage_bucket"
 	"create" in rc.change.actions
@@ -23,7 +23,7 @@ deny[msg] if {
 }
 
 # 3. Disallow public IP access_config blocks on compute instances
-deny[msg] if {
+deny contains msg if {
 	some rc in input.resource_changes
 	rc.type == "google_compute_instance"
 	"create" in rc.change.actions

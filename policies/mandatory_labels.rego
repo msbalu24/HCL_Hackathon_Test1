@@ -9,7 +9,7 @@ label_checked_types := {
 	"google_compute_instance",
 }
 
-deny[msg] if {
+deny contains msg if {
 	some rc in input.resource_changes
 	rc.type in label_checked_types
 	"create" in rc.change.actions
